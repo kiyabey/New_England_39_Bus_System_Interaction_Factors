@@ -149,6 +149,10 @@ def plot_interaction_factors(start, worksheet, dictionary):
     x_axis_values = list(dictionary.values())
 
     plt.plot(x_axis_values, interaction_factors, 'o', linestyle = 'None')
+    plt.xlabel('Distance')  # X-axis label
+    plt.ylabel('Interaction Factor')  # Y-axis label
+    plt.title('Interaction Factors between the '+ start +' and other buses')   # Title for the entire plot
+    plt.grid(True)
     plt.show()
 
   
@@ -156,5 +160,5 @@ def plot_interaction_factors(start, worksheet, dictionary):
 
 adj_list = edge_list_to_adjacency_list(edge_list)
 
-plot_interaction_factors('Bus25', ws_voltages, dijkstra(adj_list, 'Bus01'))
+plot_interaction_factors('Bus01', ws_voltages, dijkstra(adj_list, 'Bus01'))
 
